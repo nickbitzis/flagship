@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flagship</title>
+  <meta name="description" content="Feature flags and experiments: targeting rules, gradual rollouts, kill switches, approvals, audit log, and experiment readouts.">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>Flagship</h1>
+      <p class="sub">Feature flags and experiments for Larkspur Supply Co. Synthetic demo data.</p>
+    </div>
+    <label class="actor">Acting as
+      <select id="actor">
+        <option>alice</option>
+        <option>bob</option>
+        <option>carol</option>
+      </select>
+    </label>
+  </header>
+  <nav class="tabs" id="tabs">
+    <a href="#/flags" data-tab="flags">Flags</a>
+    <a href="#/audit" data-tab="audit">Audit log</a>
+    <a href="#/approvals" data-tab="approvals">Approvals <span id="pending-count" class="count"></span></a>
+    <a href="#/experiments" data-tab="experiments">Experiments</a>
+    <a href="#/stale" data-tab="stale">Stale flags</a>
+  </nav>
+  <main id="view" class="wrap" aria-live="polite"></main>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,771 @@
+{
+ "generated_at": 1794086830.1018088,
+ "flags": [
+  {
+   "key": "holiday-promo-2025",
+   "name": "Holiday promo 2025",
+   "kind": "boolean",
+   "variations": [
+    {
+     "value": true,
+     "name": "on"
+    },
+    {
+     "value": false,
+     "name": "off"
+    }
+   ],
+   "tags": [
+    "marketing"
+   ],
+   "environments": {
+    "dev": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "staging": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "prod": {
+     "on": false,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    }
+   },
+   "salt": "holiday-promo-2025-2026",
+   "killed": false,
+   "version": 1,
+   "created_at": 1766438828.7434702,
+   "updated_at": 1766438828.7434702
+  },
+  {
+   "key": "ledger-sync",
+   "name": "Ledger sync backend",
+   "description": "Dark launch: writes go to the new ledger service in shadow mode.",
+   "kind": "boolean",
+   "variations": [
+    {
+     "value": true,
+     "name": "on"
+    },
+    {
+     "value": false,
+     "name": "off"
+    }
+   ],
+   "tags": [
+    "critical",
+    "payments"
+   ],
+   "environments": {
+    "dev": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "staging": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "prod": {
+     "on": false,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    }
+   },
+   "salt": "ledger-sync-2026",
+   "killed": false,
+   "version": 2,
+   "created_at": 1792877228.7434702,
+   "updated_at": 1793827628.7434702
+  },
+  {
+   "key": "ledger-sync-ui",
+   "name": "Ledger sync status page",
+   "description": "Only makes sense when ledger-sync serves on.",
+   "kind": "boolean",
+   "variations": [
+    {
+     "value": true,
+     "name": "on"
+    },
+    {
+     "value": false,
+     "name": "off"
+    }
+   ],
+   "tags": [
+    "payments"
+   ],
+   "environments": {
+    "dev": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "staging": {
+     "on": true,
+     "off_variation": 1,
+     "prerequisites": [
+      {
+       "key": "ledger-sync",
+       "variation": 0
+      }
+     ],
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "prod": {
+     "on": true,
+     "off_variation": 1,
+     "prerequisites": [
+      {
+       "key": "ledger-sync",
+       "variation": 0
+      }
+     ],
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    }
+   },
+   "salt": "ledger-sync-ui-2026",
+   "killed": false,
+   "version": 1,
+   "created_at": 1793222828.7434702,
+   "updated_at": 1793222828.7434702
+  },
+  {
+   "key": "legacy-banner",
+   "name": "Spring sale banner",
+   "description": "Rolled out to 100% months ago. Nobody removed it.",
+   "kind": "boolean",
+   "variations": [
+    {
+     "value": true,
+     "name": "on"
+    },
+    {
+     "value": false,
+     "name": "off"
+    }
+   ],
+   "tags": [
+    "marketing"
+   ],
+   "client_side": true,
+   "environments": {
+    "dev": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "staging": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "prod": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    }
+   },
+   "salt": "legacy-banner-2026",
+   "killed": false,
+   "version": 1,
+   "created_at": 1780262828.7434702,
+   "updated_at": 1780262828.7434702
+  },
+  {
+   "key": "max-cart-items",
+   "name": "Max cart items",
+   "kind": "number",
+   "variations": [
+    {
+     "value": 50,
+     "name": "50"
+    },
+    {
+     "value": 100,
+     "name": "100"
+    },
+    {
+     "value": 250,
+     "name": "250"
+    }
+   ],
+   "tags": [
+    "checkout"
+   ],
+   "environments": {
+    "dev": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "staging": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "prod": {
+     "on": true,
+     "off_variation": 0,
+     "rules": [
+      {
+       "id": "enterprise",
+       "clauses": [
+        {
+         "attribute": "key",
+         "op": "segment_match",
+         "values": [
+          "enterprise-accounts"
+         ]
+        }
+       ],
+       "variation": 2
+      },
+      {
+       "id": "new-signups",
+       "description": "Accounts created after the 2026 pricing change",
+       "clauses": [
+        {
+         "attribute": "signup_date",
+         "op": "after",
+         "values": [
+          "2026-03-01T00:00:00Z"
+         ]
+        }
+       ],
+       "variation": 1
+      }
+     ],
+     "fallthrough": {
+      "variation": 0
+     }
+    }
+   },
+   "salt": "max-cart-items-2026",
+   "killed": false,
+   "version": 1,
+   "created_at": 1786310828.7434702,
+   "updated_at": 1786310828.7434702
+  },
+  {
+   "key": "new-checkout",
+   "name": "New checkout flow",
+   "description": "One page checkout. A/B test against the current three step flow.",
+   "kind": "boolean",
+   "variations": [
+    {
+     "value": true,
+     "name": "one-page"
+    },
+    {
+     "value": false,
+     "name": "three-step"
+    }
+   ],
+   "tags": [
+    "critical",
+    "checkout",
+    "experiment"
+   ],
+   "client_side": true,
+   "experiment": {
+    "primary_metric": "checkout_completed",
+    "control": 1,
+    "hypothesis": "A one page checkout raises completed checkouts by at least 5% relative."
+   },
+   "environments": {
+    "dev": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "staging": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "prod": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "rollout": {
+       "weights": [
+        50000,
+        50000
+       ],
+       "bucket_by": "key"
+      }
+     }
+    }
+   },
+   "salt": "new-checkout-2026",
+   "killed": false,
+   "version": 1,
+   "created_at": 1790198828.7434702,
+   "updated_at": 1790198828.7434702
+  },
+  {
+   "key": "payments-retry-policy",
+   "name": "Payments retry policy",
+   "kind": "string",
+   "variations": [
+    {
+     "value": "fixed-3",
+     "name": "fixed 3 tries"
+    },
+    {
+     "value": "exp-backoff-5",
+     "name": "exponential, 5 tries"
+    }
+   ],
+   "tags": [
+    "critical",
+    "payments",
+    "permanent"
+   ],
+   "environments": {
+    "dev": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "staging": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "prod": {
+     "on": true,
+     "off_variation": 0,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    }
+   },
+   "salt": "payments-retry-policy-2026",
+   "killed": false,
+   "version": 1,
+   "created_at": 1787606828.7434702,
+   "updated_at": 1787606828.7434702
+  },
+  {
+   "key": "pdf-export-beta",
+   "name": "PDF export beta",
+   "kind": "boolean",
+   "variations": [
+    {
+     "value": true,
+     "name": "on"
+    },
+    {
+     "value": false,
+     "name": "off"
+    }
+   ],
+   "tags": [
+    "reports"
+   ],
+   "environments": {
+    "dev": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "staging": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "prod": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [
+      {
+       "id": "beta",
+       "clauses": [
+        {
+         "attribute": "key",
+         "op": "segment_match",
+         "values": [
+          "beta-testers"
+         ]
+        }
+       ],
+       "variation": 0
+      }
+     ],
+     "fallthrough": {
+      "variation": 1
+     }
+    }
+   },
+   "salt": "pdf-export-beta-2026",
+   "killed": false,
+   "version": 1,
+   "created_at": 1786310828.7434702,
+   "updated_at": 1786310828.7434702
+  },
+  {
+   "key": "pricing-page-layout",
+   "name": "Pricing page layout",
+   "kind": "string",
+   "variations": [
+    {
+     "value": "classic",
+     "name": "classic"
+    },
+    {
+     "value": "compact",
+     "name": "compact"
+    },
+    {
+     "value": "annual-first",
+     "name": "annual first"
+    }
+   ],
+   "tags": [
+    "growth"
+   ],
+   "client_side": true,
+   "environments": {
+    "dev": {
+     "on": true,
+     "off_variation": 0,
+     "rules": [],
+     "fallthrough": {
+      "variation": 1
+     }
+    },
+    "staging": {
+     "on": true,
+     "off_variation": 0,
+     "rules": [],
+     "fallthrough": {
+      "variation": 1
+     }
+    },
+    "prod": {
+     "on": true,
+     "off_variation": 0,
+     "rules": [
+      {
+       "id": "na",
+       "description": "North America sees annual pricing first",
+       "clauses": [
+        {
+         "attribute": "country",
+         "op": "in",
+         "values": [
+          "US",
+          "CA"
+         ]
+        }
+       ],
+       "variation": 2
+      },
+      {
+       "id": "mobile-web",
+       "clauses": [
+        {
+         "attribute": "user_agent",
+         "op": "matches",
+         "values": [
+          "(?i)mobile|android|iphone"
+         ]
+        }
+       ],
+       "variation": 1
+      }
+     ],
+     "fallthrough": {
+      "variation": 0
+     }
+    }
+   },
+   "salt": "pricing-page-layout-2026",
+   "killed": false,
+   "version": 1,
+   "created_at": 1788902828.7434702,
+   "updated_at": 1788902828.7434702
+  },
+  {
+   "key": "recommendations-model",
+   "name": "Recommendations model config",
+   "kind": "json",
+   "variations": [
+    {
+     "value": {
+      "model": "als-v3",
+      "k": 20,
+      "diversity": 0.1
+     },
+     "name": "als-v3"
+    },
+    {
+     "value": {
+      "model": "two-tower-v1",
+      "k": 40,
+      "diversity": 0.3
+     },
+     "name": "two-tower-v1"
+    }
+   ],
+   "tags": [
+    "ml"
+   ],
+   "environments": {
+    "dev": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "staging": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "prod": {
+     "on": true,
+     "off_variation": 0,
+     "rules": [
+      {
+       "id": "heavy-buyers",
+       "description": "Customers with 10 to 1000 orders get the new model at 30%",
+       "clauses": [
+        {
+         "attribute": "orders",
+         "op": "between",
+         "values": [
+          [
+           10,
+           1000
+          ]
+         ]
+        }
+       ],
+       "rollout": {
+        "weights": [
+         70000,
+         30000
+        ],
+        "bucket_by": "key"
+       }
+      }
+     ],
+     "fallthrough": {
+      "variation": 0
+     }
+    }
+   },
+   "salt": "recommendations-model-2026",
+   "killed": false,
+   "version": 1,
+   "created_at": 1792358828.7434702,
+   "updated_at": 1792358828.7434702
+  },
+  {
+   "key": "search-v2",
+   "name": "Search v2 ranking",
+   "description": "New ranking model. Gradual rollout, old app versions excluded.",
+   "kind": "boolean",
+   "variations": [
+    {
+     "value": true,
+     "name": "on"
+    },
+    {
+     "value": false,
+     "name": "off"
+    }
+   ],
+   "tags": [
+    "search"
+   ],
+   "environments": {
+    "dev": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "staging": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [],
+     "fallthrough": {
+      "variation": 0
+     }
+    },
+    "prod": {
+     "on": true,
+     "off_variation": 1,
+     "rules": [
+      {
+       "id": "old-ios",
+       "description": "iOS builds before 4.2 cannot render the new results card",
+       "clauses": [
+        {
+         "attribute": "platform",
+         "op": "equals",
+         "values": [
+          "ios"
+         ]
+        },
+        {
+         "attribute": "app_version",
+         "op": "semver_lt",
+         "values": [
+          "4.2.0"
+         ]
+        }
+       ],
+       "variation": 1
+      },
+      {
+       "id": "staff",
+       "description": "Staff always see it",
+       "clauses": [
+        {
+         "attribute": "key",
+         "op": "segment_match",
+         "values": [
+          "internal-staff"
+         ]
+        }
+       ],
+       "variation": 0
+      }
+     ],
+     "fallthrough": {
+      "rollout": {
+       "weights": [
+        25000,
+        75000
+       ],
+       "bucket_by": "key"
+      }
+     }
+    }
+   },
+   "salt": "search-v2-2026",
+   "killed": false,
+   "version": 4,
+   "created_at": 1791494828.7434702,
+   "updated_at": 1792877228.7434702
+  }
+ ],
+ "eval_stats": {
+  "ledger-sync": {
+   "count": 400,
+   "last_ts": 1794086442.1477506
+  },
+  "ledger-sync-ui": {
+   "count": 400,
+   "last_ts": 1794086442.1477506
+  },
+  "legacy-banner": {
+   "count": 400,
+   "last_ts": 1794086442.1477506
+  },
+  "max-cart-items": {
+   "count": 400,
+   "last_ts": 1794086442.1477506
+  },
+  "new-checkout": {
+   "count": 20000,
+   "last_ts": 1794086662.6628575
+  },
+  "payments-retry-policy": {
+   "count": 400,
+   "last_ts": 1794086442.1477506
+  },
+  "pricing-page-layout": {
+   "count": 400,
+   "last_ts": 1794086442.1477506
+  },
+  "recommendations-model": {
+   "count": 400,
+   "last_ts": 1794086442.1477506
+  },
+  "search-v2": {
+   "count": 400,
+   "last_ts": 1794086442.1477506
+  }
+ }
+}
